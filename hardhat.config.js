@@ -6,12 +6,14 @@
  */
 require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-etherscan");
-require('dotenv');
+const dotenv = require("dotenv")
+dotenv.config()
 
+const { INFURA_KEY, PRIVATE_KEY } = process.env;
 
-const ROPSTEN_API_URL = "https://ropsten.infura.io/v3/${INFURA_KEY}"
-const RINKEBY_API_URL = "https://rinkeby.infura.io/v3/${INFURA_KEY}"
-const PRIVATE_KEY = "${PRIVATE_KEY}"
+const ROPSTEN_API_URL = "https://ropsten.infura.io/v3/"+INFURA_KEY
+const RINKEBY_API_URL = "https://rinkeby.infura.io/v3/"+INFURA_KEY
+
 module.exports = {
   solidity: "0.8.4",
   defaultNetwork: "ropsten",
